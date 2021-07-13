@@ -1,5 +1,5 @@
 <template>
-  <div class="container is-fluid py-5">
+  <div class="Page container is-fluid p-6">
     <div class="columns">
       <div class="column">
         <slot></slot>
@@ -9,11 +9,21 @@
 </template>
 
 <script>
-export default {
+import {onMounted} from "vue";
+import bulmaCollapsible from "@creativebulma/bulma-collapsible";
 
+export default {
+  setup() {
+    onMounted(() => {
+      bulmaCollapsible.attach('.is-collapsible');
+    })
+
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.Page {
 
+}
 </style>

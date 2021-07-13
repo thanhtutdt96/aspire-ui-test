@@ -13,7 +13,20 @@ import {
     uniArrowCircleUp,
     uniPlusCircle,
     uniCheckCircle,
-    uniTimesCircle
+    uniTimesCircle,
+    uniEye,
+    uniSnowFlake,
+    uniTachometerFast,
+    uniGoogle,
+    uniHistory,
+    uniTrashAlt,
+    uniReceiptAlt,
+    uniExchange,
+    uniAngleDown,
+    uniAngleRightB,
+    uniArchiveAlt,
+    uniPlaneDeparture,
+    uniMegaphone
 } from 'vue-unicons/dist/icons'
 
 Unicon.add([
@@ -26,7 +39,20 @@ Unicon.add([
     uniArrowCircleUp,
     uniPlusCircle,
     uniCheckCircle,
-    uniTimesCircle
+    uniTimesCircle,
+    uniEye,
+    uniSnowFlake,
+    uniTachometerFast,
+    uniGoogle,
+    uniHistory,
+    uniTrashAlt,
+    uniReceiptAlt,
+    uniExchange,
+    uniAngleDown,
+    uniAngleRightB,
+    uniArchiveAlt,
+    uniPlaneDeparture,
+    uniMegaphone
 ])
 
 const app = createApp(App)

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
-@import "~bulma";
-@import '~@creativebulma/bulma-collapsible';
-
 @import "variables";
+
+@import "~bulma/bulma";
+@import '~@creativebulma/bulma-collapsible';
 
 html, body {
   font-family: 'Poppins', sans-serif;
@@ -32,7 +32,19 @@ html, body {
   }
 
   .w-auto {
-    width: auto;
+    width: auto !important;
+  }
+
+  .ml-auto {
+    margin-left: auto !important;
+  }
+
+  .text-success {
+    color: $color-primary !important;
+  }
+
+  .text-decoration-none {
+    text-decoration: none !important;
   }
 }
 

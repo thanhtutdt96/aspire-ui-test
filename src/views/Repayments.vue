@@ -16,6 +16,7 @@
       </article>
     </div>
     <Box>
+      <p v-if="!loans || loans.length <= 0">No repayments available</p>
       <Columns>
         <Column customClass="is-flex is-justify-content-flex-start is-flex-direction-column">
           <div v-if="loans && loans.length > 0">
@@ -67,8 +68,6 @@ import Page from "@/components/layouts/Page";
 import Columns from "@/components/elements/Columns";
 import Column from "@/components/elements/Column";
 import Box from "@/components/elements/Box";
-import bulmaCollapsible from '@creativebulma/bulma-collapsible';
-import {onMounted} from "vue";
 import {getLoansFunc} from "@/use/useLoan";
 import moment from "moment";
 import {makeRepaymentFunc} from "@/use/useRepayment";
@@ -81,10 +80,6 @@ export default {
     Page
   },
   setup() {
-    onMounted(() => {
-      bulmaCollapsible.attach('.is-collapsible');
-    })
-
     const {getLoans, loans} = getLoansFunc()
     getLoans()
 
