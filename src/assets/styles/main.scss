@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+@import "~bulma";
+@import '~@creativebulma/bulma-collapsible';
+
+@import "variables";
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  .unicon {
+    display: flex;
+    align-items: center;
+  }
+
+  .button {
+    &.is-info {
+      background-color: $color-tertiary;
+
+      span {
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .w-auto {
+    width: auto;
+  }
+}
+
+
