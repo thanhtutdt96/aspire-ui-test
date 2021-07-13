@@ -1,5 +1,6 @@
 import axiosHelper from "@/helpers/axiosHelper";
 import {reactive, toRefs} from "vue";
+import {getLoansFunc} from "@/use/useLoan";
 
 export const makeRepaymentFunc = () => {
     const state = reactive({
@@ -8,6 +9,7 @@ export const makeRepaymentFunc = () => {
         loading: false,
         success: false
     })
+    const {getLoans} = getLoansFunc()
 
     const makeRepayment = (repaymentId) => {
         state.loading = true
@@ -19,9 +21,7 @@ export const makeRepaymentFunc = () => {
                 state.success = true
                 state.errors = null
 
-                setTimeout(() => {
-                    location.reload()
-                }, 2000)
+                getLoans()
             })
             .catch(({response}) => {
                 console.log(response)
