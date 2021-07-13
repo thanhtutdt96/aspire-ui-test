@@ -2,7 +2,13 @@
 
 ## Overview
 
-This project was using Vue 3, developed with Bulma CSS. In order to run this app on local, please pull the latest API
+This project was using Vue 3, developed with Bulma CSS. 
+
+The hosted version is available at:
+* https://aspire-2021-ui.herokuapp.com/ (For UI)
+* https://aspire-2021-api.herokuapp.com/ (For API)
+
+In order to run this app on local, please pull the latest API
 local server: [Aspire](https://github.com/thanhtutdt96/aspire) and follow the guide to set up local server.
 
 ## Setup on Local
