@@ -20,13 +20,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  .layout {
-    padding-left: 350px;
-  }
-
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: $desktop-bp) {
     .layout {
-      padding-right: 0px;
+      padding-left: 350px;
     }
   }
 </style>

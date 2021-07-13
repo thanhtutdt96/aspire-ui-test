@@ -1,8 +1,9 @@
 <template>
   <div class="transaction-item">
-    <Columns>
+    <Columns custom-class="is-mobile">
       <Column>
-        <div :style="{backgroundColor: getIconBackground(iconType)}" class="transaction-item__icon is-flex is-justify-content-center is-align-items-center">
+        <div :style="{backgroundColor: getIconBackground(iconType)}"
+             class="transaction-item__icon is-flex is-justify-content-center is-align-items-center">
           <slot name="icon"></slot>
         </div>
       </Column>
@@ -68,33 +69,60 @@ export default {
   }
 
   &__action {
-    width: 30px;
-    height: 25px;
-    border-radius: 20px;
+    width: 25px;
+    height: 20px;
+    border-radius: 10px;
     background-color: $color-tertiary;
     padding: 5px;
   }
 
   &__content {
     h6.title {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 14px;
       color: #a5a4a4;
     }
 
     span {
       color: $color-tertiary;
       font-weight: 500 !important;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
   &__price {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
+  }
+
+  @media screen and (min-width: $desktop-bp) {
+    &__content {
+      h6.title {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+
+      span {
+
+        font-size: 14px;
+      }
+    }
+
+    &__action {
+      width: 30px;
+      height: 25px;
+      border-radius: 20px;
+    }
+
+    &__price {
+      font-size: 16px;
+    }
   }
 }
 </style>

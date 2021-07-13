@@ -20,14 +20,21 @@
       <Columns>
         <Column customClass="is-flex is-justify-content-flex-start is-flex-direction-column">
           <div v-if="loans && loans.length > 0">
-            <article v-for="(loan, index) in loans" :key="index" :id="`accordion_${index}`" class="message is-success">
+            <article v-for="(loan, index) in loans"
+                     :key="index"
+                     :id="`accordion_${index}`"
+                     class="message"
+                     :class="loan.status === 'approved' ? 'is-success' : 'is-info'">
               <a :href="`#collapse-${index}`" data-action="collapse">
                 <div class="message-header">
-                  <p>{{ loan.purpose }} - {{ formatVND(loan.total_amount) }}</p>
-                  <unicon name="plus-circle" fill="white"/>
+                  <p>{{ loan.purpose ?? 'Loan' }} - {{ formatVND(loan.total_amount) }}</p>
+                  <unicon v-if="loan.status === 'approved'" name="plus-circle" fill="white"/>
+                  <button class="button is-success" v-if="loan.status !== 'approved'" @click="approveHandle(loan.id)">Approve</button>
                 </div>
               </a>
-              <div :id="`collapse-${index}`" class="message-body is-collapsible"
+              <div v-if="loan.status === 'approved'"
+                   :id="`collapse-${index}`"
+                   class="message-body is-collapsible"
                    :data-parent="`accordion_${index}`">
                 <div class="message-body-content">
                   <table class="table is-striped is-hoverable">
@@ -80,7 +87,7 @@ export default {
     Page
   },
   setup() {
-    const {getLoans, loans} = getLoansFunc()
+    const {getLoans, approveLoan, loans} = getLoansFunc()
     getLoans()
 
     const {makeRepayment, errors, loading, success} = makeRepaymentFunc()
@@ -97,6 +104,10 @@ export default {
       return moment(String(date)).format('DD/MM/YYYY')
     }
 
+    const approveHandle = (loanId) => {
+      approveLoan(loanId)
+    }
+
     return {
       loans,
       formatVND,
@@ -104,7 +115,8 @@ export default {
       errors,
       loading,
       success,
-      repaymentHandle
+      repaymentHandle,
+      approveHandle
     }
   }
 }

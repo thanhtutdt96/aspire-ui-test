@@ -19,13 +19,21 @@ export default {
     background-color: $color-tertiary;
     border-radius: 50%;
     padding: 10px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   &__name {
     text-align: center;
     color: #0F3A5D;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: $desktop-bp) {
+    &__icon {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 </style>

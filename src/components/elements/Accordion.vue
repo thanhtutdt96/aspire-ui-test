@@ -1,7 +1,8 @@
 <template>
-  <div class="Cards__accordion Cards__accordion--first">
+  <div :class="`Cards__accordion Cards__accordion--${index}`">
     <article class="message p-0 mb-0">
-      <a class="text-decoration-none Cards__accordion-header is-active" :href="`#card-details-${index}`" data-action="collapse">
+      <a class="text-decoration-none Cards__accordion-header is-active" :href="`#card-details-${index}`"
+         data-action="collapse">
         <div class="message-header box m-0 is-justify-content-flex-start">
           <slot name="header"></slot>
         </div>
@@ -10,9 +11,9 @@
         <div class="message-body-content">
           <slot name="content"></slot>
         </div>
+        <slot name="footer"></slot>
       </div>
     </article>
-    <slot name="footer"></slot>
   </div>
 </template>
 <script>
@@ -24,17 +25,16 @@ export default {
 <style lang="scss" scoped>
 .Cards {
   &__accordion {
-    &--first {
-      margin-top: 42px;
-    }
+    margin-top: 0;
+    margin-bottom: 20px;
 
     .message-header {
       border-radius: 10px;
       background-color: #F6F9FF;
       padding: 25px;
       color: #0F3A5D;
-      font-size: 18px;
-      font-weight: 400;
+      font-size: 15px;
+      font-weight: 500;
     }
 
     .message-body {
@@ -55,6 +55,19 @@ export default {
       .message-header {
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $desktop-bp) {
+    &__accordion {
+      &--first {
+        margin-top: 42px;
+      }
+
+      .message-header {
+        font-size: 16px;
+        font-weight: 400;
       }
     }
   }

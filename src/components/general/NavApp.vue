@@ -1,7 +1,7 @@
 <template>
   <div class="navapp">
     <div
-        class="navapp__wrap my-5 pt-5 is-flex is-flex-direction-column">
+        class="navapp__wrap is-flex">
       <div class="navapp__top">
         <router-link to="/">
           <img src="@/assets/images/logo.png" alt="Logo">
@@ -10,12 +10,12 @@
           Trusted way of banking for 3000+ SMEs and startups in Singapore
         </div>
       </div>
-      <div class="navapp__middle">
+      <div class="navapp__middle is-flex">
         <div v-for="item in navlist" :key="item.id">
-        <router-link class="is-flex is-align-items-center py-5" :to="item.slug" :title="item.name">
-          <unicon :name="item.icon" fill="#fff"></unicon>
-          <span class="ml-3">{{item.name}}</span>
-        </router-link>
+          <router-link class="is-flex is-align-items-center" :to="item.slug" :title="item.name">
+            <unicon :name="item.icon" fill="#fff"></unicon>
+            <span>{{ item.name }}</span>
+          </router-link>
         </div>
       </div>
       <!--- content -->
@@ -50,23 +50,27 @@ export default {
 
 <style lang="scss">
 .navapp {
-  width: 350px;
-  height: 100vh;
   position: fixed;
   left: 0;
-  top: 0;
+  bottom: 0;
   z-index: 10;
   overflow: hidden;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: $color-secondary;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 -5px 5px -5px #d6d4d4;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+
+  &__top {
+    display: none;
+  }
 
   &__wrap {
-    min-height: 100%;
-
-    img {
-      width: 130px;
-    }
+    flex-direction: row;
+    width: 100%;
   }
 
   &__description {
@@ -76,10 +80,19 @@ export default {
   }
 
   &__middle {
-    margin-top: 100px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 
     a {
-      font-size: 18px;
+      font-size: 13px;
+      flex-direction: column;
+
+      .unicon {
+        svg {
+          fill: #ddd;
+        }
+      }
 
       &.router-link-exact-active,
       &:hover,
@@ -98,7 +111,53 @@ export default {
       }
 
       span {
-        color: #fff;
+        color: #ddd;
+      }
+    }
+  }
+
+  @media screen and (min-width: $desktop-bp) {
+    width: 350px;
+    height: 100vh;
+    top: 0;
+    background-color: $color-secondary;
+    box-shadow: none;
+
+    &__top {
+      display: block;
+    }
+
+    &__wrap {
+      min-height: 100%;
+      flex-direction: column;
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      img {
+        width: 130px;
+      }
+    }
+
+    &__middle {
+      margin-top: 100px;
+      flex-direction: column;
+
+      a {
+        font-size: 18px;
+        flex-direction: row;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+
+        .unicon {
+          svg {
+            fill: #fff;
+          }
+        }
+        span {
+          color: #fff;
+          margin-left: 0.75rem;
+        }
       }
     }
   }

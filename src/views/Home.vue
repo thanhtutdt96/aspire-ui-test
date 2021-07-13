@@ -107,7 +107,7 @@ export default {
       loan: {
         user_id: id,
         package_id: 1,
-        purpose: '',
+        purpose: 'Test Loan',
         base_amount: 1000000
       }
     })

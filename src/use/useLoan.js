@@ -45,10 +45,10 @@ export const getLoansFunc = () => {
         success: false
     })
 
-    const getLoans = (loan) => {
+    const getLoans = () => {
         state.loading = true
 
-        axiosHelper().get('/v1/get-loans', loan)
+        axiosHelper().get('/v1/get-loans')
             .then(({data}) => {
                 state.loading = false
                 state.loans = data.loans
@@ -62,8 +62,27 @@ export const getLoansFunc = () => {
             })
     }
 
+    const approveLoan = (loanId) => {
+        state.loading = true
+
+        axiosHelper().post(`/v1/approve-loan/${loanId}`)
+            .then(() => {
+                state.loading = false
+                state.success = true
+                state.errors = null
+
+                getLoans()
+            })
+            .catch(({response}) => {
+                state.errors = response.data.errors
+                state.loading = false
+                state.success = false
+            })
+    }
+
     return {
         ...toRefs(state),
-        getLoans
+        getLoans,
+        approveLoan
     }
 }
