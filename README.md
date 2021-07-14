@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project was using Vue 3, developed with Bulma CSS. 
+This project was using Vue 3, developed with [Bulma CSS](https://bulma.io/) and [Vue Unicons](https://antonreshetov.github.io/vue-unicons/). 
 
 The hosted version is available at:
 * https://aspire-2021-ui.herokuapp.com/ (For UI)
