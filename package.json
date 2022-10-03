@@ -9,28 +9,28 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "@creativebulma/bulma-collapsible": "^1.0.4",
-    "axios": "^0.21.1",
-    "bulma": "^0.9.3",
-    "connect-history-api-fallback": "^1.6.0",
-    "core-js": "^3.6.5",
-    "express": "^4.17.1",
-    "moment": "^2.29.1",
-    "node-sass": "^6.0.1",
-    "sass-loader": "^10.1.1",
-    "serve-static": "^1.14.1",
-    "vue": "^3.0.0",
-    "vue-router": "4",
-    "vue-unicons": "^3.2.1"
+    "axios": "^0.27.2",
+    "bulma": "^0.9.4",
+    "connect-history-api-fallback": "^2.0.0",
+    "core-js": "^3.25.4",
+    "express": "^4.18.1",
+    "moment": "^2.29.4",
+    "node-sass": "^7.0.3",
+    "sass-loader": "^13.0.2",
+    "serve-static": "^1.15.0",
+    "vue": "^3.2.40",
+    "vue-router": "4.1.5",
+    "vue-unicons": "^3.3.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-service": "~5.0.8",
+    "@vue/compiler-sfc": "^3.2.40",
+    "eslint": "^8.24.0",
+    "eslint-plugin-vue": "^9.5.1"
   },
   "eslintConfig": {
     "root": true,
@@ -42,9 +42,11 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
   },
   "browserslist": [
     "> 1%",
